@@ -1,0 +1,14 @@
+<?php
+
+return [
+    'database' => [
+        'connection' => [
+            'host' => 'localhost',
+            'port' => 3306,
+            'dbname' => 'plain_kit_ledger',
+            'charset' => 'utf8mb4',
+        ],
+        'username' => 'root',
+        'password' => ''
+    ],
+];

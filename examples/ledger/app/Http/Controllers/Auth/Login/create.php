@@ -1,0 +1,8 @@
+<?php
+
+use Omaressaouaf\PlainKit\App;
+use Omaressaouaf\PlainKit\Response;
+
+$response = App::resolve(Response::class);
+// dd(password_hash('password', PASSWORD_BCRYPT));
+$response->view("auth/login");
