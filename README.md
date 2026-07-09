@@ -8,7 +8,7 @@ A small personal PHP toolkit for building **MVC-style demos, prototypes, and cod
 
 PlainKit gives you just enough structure around routing, middleware, request handling, sessions, CSRF protection, validation, simple views, environment configuration, and a lightweight service container — while staying close to plain PHP.
 
-> PlainKit is **not** a production framework. It is not intended to replace Laravel, Symfony, Slim, or any mature PHP framework. It exists as a practical foundation for small projects, experiments, and learning how framework pieces fit together.
+> PlainKit is **not** a production framework. It is not intended to replace Laravel, Symfony, Slim, or any mature PHP framework. It exists as a practical foundation for personal small projects, experiments, and learning how framework pieces fit together.
 
 ---
 
@@ -199,15 +199,15 @@ env('DB_HOST', 'localhost'); // read a variable with optional default
 
 PlainKit registers these global helpers:
 
-| Helper | Purpose |
-|---|---|
-| `base_path('config/app.php')` | Path relative to the app root |
-| `app_path('Http/Controllers/home.php')` | Path relative to `app/` |
-| `env('KEY', 'default')` | Read an environment variable |
-| `load_env($basePath)` | Load `.env` from a directory |
-| `e($value)` | Escape HTML (returns string) |
-| `_r($value)` | Echo escaped HTML |
-| `dd(...$values)` | Dump and die |
+| Helper                                  | Purpose                       |
+| --------------------------------------- | ----------------------------- |
+| `base_path('config/app.php')`           | Path relative to the app root |
+| `app_path('Http/Controllers/home.php')` | Path relative to `app/`       |
+| `env('KEY', 'default')`                 | Read an environment variable  |
+| `load_env($basePath)`                   | Load `.env` from a directory  |
+| `e($value)`                             | Escape HTML (returns string)  |
+| `_r($value)`                            | Echo escaped HTML             |
+| `dd(...$values)`                        | Dump and die                  |
 
 `base_path()` requires `PLAINKIT_BASE_PATH` to be defined (via `App::create()` or manually).
 
@@ -279,11 +279,11 @@ $router->get('/login', 'Auth/Login/create')->middleware('guest');
 
 Built-in middleware keys:
 
-| Key | Behavior |
-|---|---|
-| `auth` | Redirect to `/login` if the user is not logged in |
-| `guest` | Redirect to `/` if the user is already logged in |
-| `csrf` | Verify CSRF token on `POST` requests (applied automatically on every matched route) |
+| Key     | Behavior                                                                            |
+| ------- | ----------------------------------------------------------------------------------- |
+| `auth`  | Redirect to `/login` if the user is not logged in                                   |
+| `guest` | Redirect to `/` if the user is already logged in                                    |
+| `csrf`  | Verify CSRF token on `POST` requests (applied automatically on every matched route) |
 
 ### Route parameters
 
@@ -310,7 +310,7 @@ $router->get('/clients/{id}', 'Clients/show');     // match second
 HTML forms can simulate `PUT`, `PATCH`, or `DELETE` via a hidden `_method` field:
 
 ```html
-<input type="hidden" name="_method" value="DELETE">
+<input type="hidden" name="_method" value="DELETE" />
 ```
 
 The router reads `$_POST['_method']` when handling the request.
@@ -407,7 +407,7 @@ $csrf = App::resolve(Csrf::class);
 ```
 
 ```html
-<input type="hidden" name="_csrf_token" value="<?= $csrf->generate() ?>">
+<input type="hidden" name="_csrf_token" value="<?= $csrf->generate() ?>" />
 ```
 
 `VerifyCsrf` middleware runs on every matched route. On `POST` requests it checks the submitted `_csrf_token`. Invalid or missing tokens trigger a `419` response.
@@ -460,15 +460,15 @@ $errors = $session->get('errors');
 
 ### Validator methods
 
-| Method | Description |
-|---|---|
-| `Validator::exists($value)` | Not empty |
-| `Validator::email($value)` | Valid email |
-| `Validator::string($value)` | Non-empty trimmed string |
-| `Validator::numeric($value)` | Numeric value |
-| `Validator::in($value, $array)` | Value in array |
-| `Validator::min($value, $min)` | Min length/count/numeric |
-| `Validator::max($value, $max)` | Max length/count/numeric |
+| Method                          | Description              |
+| ------------------------------- | ------------------------ |
+| `Validator::exists($value)`     | Not empty                |
+| `Validator::email($value)`      | Valid email              |
+| `Validator::string($value)`     | Non-empty trimmed string |
+| `Validator::numeric($value)`    | Numeric value            |
+| `Validator::in($value, $array)` | Value in array           |
+| `Validator::min($value, $min)`  | Min length/count/numeric |
+| `Validator::max($value, $max)`  | Max length/count/numeric |
 
 ---
 
@@ -566,11 +566,11 @@ Built-in middleware is resolved by key through the `Middleware` class. To add cu
 
 ## Exceptions
 
-| Exception | When |
-|---|---|
-| `BindingNotFoundException` | Container binding not registered |
-| `MiddlewareNotFoundException` | Unknown middleware key |
-| `ValidationException` | Form validation failed (carries `$errors` and `$old`) |
+| Exception                     | When                                                  |
+| ----------------------------- | ----------------------------------------------------- |
+| `BindingNotFoundException`    | Container binding not registered                      |
+| `MiddlewareNotFoundException` | Unknown middleware key                                |
+| `ValidationException`         | Form validation failed (carries `$errors` and `$old`) |
 
 ---
 
