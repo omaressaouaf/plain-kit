@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-
-
-declare(strict_types=1);
 <html class="h-full bg-gray-100">
 
 <head>

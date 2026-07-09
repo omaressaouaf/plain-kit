@@ -68,7 +68,7 @@ $old = $session->get('old');
                 <tr>
                     <td><?= e($transaction['id']) ?></td>
                     <td><?= e(ucfirst($transaction['type'])) ?></td>
-                    <td><?= e(number_format($transaction['amount'], 2)) ?></td>
+                    <td><?= e(number_format((float) $transaction['amount'], 2)) ?></td>
                     <td><?= e($transaction['client_name']) ?></td>
                     <td><?= e($transaction['created_at']) ?></td>
                 </tr>

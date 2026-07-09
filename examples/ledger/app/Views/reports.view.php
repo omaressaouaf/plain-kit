@@ -38,11 +38,11 @@ $old = $session->get('old');
     <?php foreach ($reports as $report): ?>
         <div>
             <h2>Client: <?= e($report['client_name']) ?></h2>
-            <p><strong>Total Earnings:</strong> <?= number_format($report['total_earnings'], 2) ?> USD</p>
-            <p><strong>Total Expenses:</strong> <?= number_format($report['total_expenses'], 2) ?> USD</p>
+            <p><strong>Total Earnings:</strong> <?= number_format((float) $report['total_earnings'], 2) ?> USD</p>
+            <p><strong>Total Expenses:</strong> <?= number_format((float) $report['total_expenses'], 2) ?> USD</p>
             <p><strong>Net Balance:</strong>
-                <span class="<?= $report['balance'] >= 0 ? 'text-success' : 'text-danger' ?>">
-                    <?= ($report['balance'] >= 0 ? '+' : '') . number_format($report['balance'], 2) ?> USD
+                <span class="<?= (float) $report['balance'] >= 0 ? 'text-success' : 'text-danger' ?>">
+                    <?= ((float) $report['balance'] >= 0 ? '+' : '') . number_format((float) $report['balance'], 2) ?> USD
                 </span>
             </p>
         </div>
