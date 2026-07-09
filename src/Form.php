@@ -29,7 +29,7 @@ abstract class Form
 
     public function failed(): bool
     {
-        return count(array_keys($this->errors));
+        return (bool) count(array_keys($this->errors));
     }
 
     public function throw(): void
