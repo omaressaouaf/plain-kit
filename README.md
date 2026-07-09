@@ -34,45 +34,29 @@ composer require omaressaouaf/plain-kit
 
 ## Basic Usage
 
-Define your application base path, load Composer autoloading, register bindings in a container, and let the router handle the request:
+Load Composer autoloading, create an application, register your bindings, and run:
 
 ```php
 <?php
 
 use Omaressaouaf\PlainKit\App;
-use Omaressaouaf\PlainKit\Container;
-use Omaressaouaf\PlainKit\Csrf;
-use Omaressaouaf\PlainKit\Middleware\Middleware;
-use Omaressaouaf\PlainKit\Request;
-use Omaressaouaf\PlainKit\Response;
-use Omaressaouaf\PlainKit\Router;
-use Omaressaouaf\PlainKit\Session;
-
-session_start();
-
-define('PLAINKIT_BASE_PATH', __DIR__ . '/../');
 
 require __DIR__ . '/../../vendor/autoload.php';
 
-$container = new Container;
-
-$container->bind(Session::class, fn () => new Session);
-$container->bind(Csrf::class, fn () => new Csrf);
-$container->bind(Middleware::class, fn () => new Middleware);
-$container->bind(Request::class, fn () => new Request);
-$container->bind(Response::class, fn () => new Response);
-$container->bind(Router::class, fn () => new Router);
-
-App::setContainer($container);
-
-$router = App::resolve(Router::class);
-
-$router->get('/', 'home');
-
-$router->handleRequest();
+App::create(__DIR__ . '/../')
+    ->bind(HomeController::class, fn () => new HomeController())
+    ->run();
 ```
 
-Register routes in a separate file and point controllers to PHP files under `app/Http/Controllers`. Views are rendered with `Response::view()`, and middleware keys like `auth`, `guest`, and `csrf` are resolved automatically.
+`App::create()` sets the base path, starts the session, and registers the default PlainKit bindings. Chain `bind()` calls for your own services:
+
+```php
+App::create(__DIR__ . '/../')
+    ->bind(HomeController::class, fn () => new HomeController())
+    ->run();
+```
+
+Register routes in `routes/web.php` and point controllers to PHP files under `app/Http/Controllers`. Views are rendered with `Response::view()`, and middleware keys like `auth`, `guest`, and `csrf` are resolved automatically.
 
 See `examples/ledger` for a fuller setup with repositories, services, forms, and authentication.
 
