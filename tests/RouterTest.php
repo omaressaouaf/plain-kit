@@ -50,4 +50,28 @@ class RouterTest extends TestCase
 
         $this->assertSame('deleted', $GLOBALS['router_test_marker'] ?? null);
     }
+
+    public function test_it_dispatches_routes_with_parameters(): void
+    {
+        $this->bootApplication();
+
+        $router = new Router();
+        $router->get('/clients/{id}', 'client');
+
+        $result = $router->route('/clients/42', 'GET');
+
+        $this->assertSame('42', $result);
+    }
+
+    public function test_it_does_not_match_similar_static_routes_as_parameters(): void
+    {
+        $this->bootApplication();
+
+        $router = new Router();
+        $router->get('/clients/list', 'ping');
+        $router->get('/clients/{id}', 'client');
+
+        $this->assertSame('pong', $router->route('/clients/list', 'GET'));
+        $this->assertSame('99', $router->route('/clients/99', 'GET'));
+    }
 }

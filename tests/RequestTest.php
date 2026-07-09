@@ -62,4 +62,18 @@ class RequestTest extends TestCase
 
         $this->assertSame('default', $this->request->input('missing', 'default'));
     }
+
+    public function test_it_reads_route_parameters(): void
+    {
+        $this->request->setParams(['id' => '42', 'slug' => 'acme']);
+
+        $this->assertSame('42', $this->request->params('id'));
+        $this->assertSame('acme', $this->request->params('slug'));
+        $this->assertSame(['id' => '42', 'slug' => 'acme'], $this->request->params());
+    }
+
+    public function test_it_returns_default_when_route_parameter_is_missing(): void
+    {
+        $this->assertSame('fallback', $this->request->params('id', 'fallback'));
+    }
 }
