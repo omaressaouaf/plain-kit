@@ -2,11 +2,13 @@
 
 function base_path(string $path): string
 {
-    $base = defined('PLAINKIT_BASE_PATH')
-        ? PLAINKIT_BASE_PATH
-        : dirname(__DIR__) . '/';
+    if (! defined('PLAINKIT_BASE_PATH')) {
+        throw new \RuntimeException(
+            'PLAINKIT_BASE_PATH is not defined. Call App::create() or define it before using base_path().'
+        );
+    }
 
-    return $base . $path;
+    return PLAINKIT_BASE_PATH . $path;
 }
 
 function app_path(string $path): string

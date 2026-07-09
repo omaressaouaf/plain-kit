@@ -40,7 +40,7 @@ class App
         return static::$container->resolve($key);
     }
 
-    public function run(string $routesFile = 'routes/web.php'): void
+    public function run(string $routesFile = 'routes.php'): void
     {
         $router = static::resolve(Router::class);
 
