@@ -7,6 +7,8 @@ define('PLAINKIT_BASE_PATH', dirname(__DIR__) . '/');
 
 require dirname(__DIR__, 3) . '/vendor/autoload.php';
 
+load_env(dirname(__DIR__));
+
 $config = require base_path('config/app.php');
 $host = $config['database']['connection']['host'];
 $port = $config['database']['connection']['port'];

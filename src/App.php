@@ -20,6 +20,8 @@ class App
             define('PLAINKIT_BASE_PATH', rtrim($basePath, '/') . '/');
         }
 
+        load_env(rtrim(PLAINKIT_BASE_PATH, '/'));
+
         if (session_status() === PHP_SESSION_NONE) {
             session_start();
         }

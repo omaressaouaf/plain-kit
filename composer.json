@@ -38,7 +38,8 @@
         "test-f": "phpunit --filter"
     },
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "vlucas/phpdotenv": "^5.6"
     },
     "require-dev": {
         "laravel/pint": "^1.0",

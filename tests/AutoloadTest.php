@@ -49,7 +49,9 @@ class AutoloadTest extends TestCase
     {
         $this->assertTrue(function_exists('base_path'));
         $this->assertTrue(function_exists('app_path'));
+        $this->assertTrue(function_exists('load_env'));
         $this->assertTrue(function_exists('dd'));
+        $this->assertTrue(function_exists('env'));
         $this->assertTrue(function_exists('e'));
         $this->assertTrue(function_exists('_r'));
     }

@@ -12,9 +12,10 @@ From the repository root:
 
 ```bash
 composer install
+cp examples/ledger/.env.example examples/ledger/.env
 ```
 
-Edit database credentials in `examples/ledger/config/app.php` if needed.
+Edit `examples/ledger/.env` if you need different database credentials.
 
 Run the migration script to create the database and tables:
 
