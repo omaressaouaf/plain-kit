@@ -1,5 +1,8 @@
 <?php
 
+
+declare(strict_types=1);
+
 define('PLAINKIT_BASE_PATH', dirname(__DIR__) . '/');
 
 require dirname(__DIR__, 3) . '/vendor/autoload.php';

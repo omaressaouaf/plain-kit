@@ -1,12 +1,14 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Omaressaouaf\PlainKit\Middleware;
 
 use Omaressaouaf\PlainKit\App;
 use Omaressaouaf\PlainKit\Response;
 use Omaressaouaf\PlainKit\Session;
 
-class Guest
+class Guest implements MiddlewareInterface
 {
     private Response $response;
 
@@ -21,8 +23,8 @@ class Guest
 
     public function handle(): void
     {
-        if ($this->session->has("user")) {
-            $this->response->redirect("/");
+        if ($this->session->has('user')) {
+            $this->response->redirect('/');
         }
     }
 }

@@ -1,5 +1,8 @@
 <?php
 
+
+declare(strict_types=1);
+
 namespace Omaressaouaf\PlainKit;
 
 class Csrf
@@ -26,6 +29,6 @@ class Csrf
 
     public function verify(string $token): bool
     {
-        return hash_equals($this->session->get('_csrf_token'), $token);
+        return hash_equals((string) $this->session->get('_csrf_token', ''), $token);
     }
 }

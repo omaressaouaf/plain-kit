@@ -1,5 +1,8 @@
 <?php
 
+
+declare(strict_types=1);
+
 use Omaressaouaf\PlainKit\App;
 use Omaressaouaf\PlainKit\Request;
 use Omaressaouaf\PlainKit\Response;

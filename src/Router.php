@@ -1,5 +1,8 @@
 <?php
 
+
+declare(strict_types=1);
+
 namespace Omaressaouaf\PlainKit;
 
 use Omaressaouaf\PlainKit\Exceptions\ValidationException;

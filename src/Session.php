@@ -1,5 +1,8 @@
 <?php
 
+
+declare(strict_types=1);
+
 namespace Omaressaouaf\PlainKit;
 
 class Session
@@ -11,7 +14,7 @@ class Session
 
     public function has(string $key): bool
     {
-        return (bool) static::get($key);
+        return (bool) $this->get($key);
     }
 
     public function put(string $key, mixed $value): void

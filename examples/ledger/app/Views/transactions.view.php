@@ -1,5 +1,8 @@
 <?php
 
+
+declare(strict_types=1);
+
 use Omaressaouaf\PlainKit\App;
 use Omaressaouaf\PlainKit\Csrf;
 use Omaressaouaf\PlainKit\Response;
@@ -39,7 +42,7 @@ $old = $session->get('old');
         <select name="client_id" id="client_id" class="form-control">
             <?php foreach ($clients as $client): ?>
                 <option value="<?= $client['id'] ?>" <?= (isset($old['client_id']) && $old['client_id'] == $client['id']) ? 'selected' : '' ?>>
-                    <?= _r($client['name']) ?>
+                    <?= e($client['name']) ?>
                 </option>
             <?php endforeach; ?>
         </select>
@@ -63,11 +66,11 @@ $old = $session->get('old');
         <?php if (count($transactions) > 0): ?>
             <?php foreach ($transactions as $transaction): ?>
                 <tr>
-                    <td><?= _r($transaction['id']) ?></td>
-                    <td><?= _r(ucfirst($transaction['type'])) ?></td>
-                    <td><?= _r(number_format($transaction['amount'], 2)) ?></td>
-                    <td><?= _r($transaction['client_name']) ?></td>
-                    <td><?= _r($transaction['created_at']) ?></td>
+                    <td><?= e($transaction['id']) ?></td>
+                    <td><?= e(ucfirst($transaction['type'])) ?></td>
+                    <td><?= e(number_format($transaction['amount'], 2)) ?></td>
+                    <td><?= e($transaction['client_name']) ?></td>
+                    <td><?= e($transaction['created_at']) ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>

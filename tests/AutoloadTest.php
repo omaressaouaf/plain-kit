@@ -1,5 +1,8 @@
 <?php
 
+
+declare(strict_types=1);
+
 namespace Omaressaouaf\PlainKit\Tests;
 
 use Omaressaouaf\PlainKit\App;
@@ -47,6 +50,7 @@ class AutoloadTest extends TestCase
         $this->assertTrue(function_exists('base_path'));
         $this->assertTrue(function_exists('app_path'));
         $this->assertTrue(function_exists('dd'));
+        $this->assertTrue(function_exists('e'));
         $this->assertTrue(function_exists('_r'));
     }
 }

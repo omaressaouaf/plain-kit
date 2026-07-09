@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Omaressaouaf\PlainKit;
 
 class Response
@@ -13,7 +15,7 @@ class Response
 
     public function json(array $data): void
     {
-        header("Content-Type: application/json");
+        header('Content-Type: application/json');
 
         echo json_encode($data);
     }
@@ -27,7 +29,7 @@ class Response
 
     public function back(): void
     {
-        $this->redirect($_SERVER["HTTP_REFERER"]);
+        $this->redirect($_SERVER['HTTP_REFERER'] ?? '/');
     }
 
     public function abort(int $code = 404): void
@@ -36,6 +38,6 @@ class Response
 
         require base_path("app/Http/Controllers/Failures/{$code}.php");
 
-        die();
+        exit();
     }
 }

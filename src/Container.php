@@ -1,6 +1,10 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Omaressaouaf\PlainKit;
+
+use Omaressaouaf\PlainKit\Exceptions\BindingNotFoundException;
 
 class Container
 {
@@ -13,8 +17,8 @@ class Container
 
     public function resolve(string $key): mixed
     {
-        if (!array_key_exists($key, $this->bindings)) {
-            throw new \Exception("{$key} binding key not found");
+        if (! array_key_exists($key, $this->bindings)) {
+            throw new BindingNotFoundException("{$key} binding key not found");
         }
 
         $resolver = $this->bindings[$key];

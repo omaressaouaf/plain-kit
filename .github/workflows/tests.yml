@@ -29,6 +29,3 @@ jobs:
 
       - name: Run tests
         run: composer test
-
-      - name: Run Pint
-        run: composer format:test

@@ -1,6 +1,8 @@
 <?php
 
-function base_path(string $path): string
+declare(strict_types=1);
+
+function base_path(string $path = ''): string
 {
     if (! defined('PLAINKIT_BASE_PATH')) {
         throw new \RuntimeException(
@@ -16,14 +18,19 @@ function app_path(string $path): string
     return base_path('app/' . $path);
 }
 
+function e(mixed $value): string
+{
+    return htmlspecialchars((string) $value);
+}
+
+function _r(mixed $value): void
+{
+    echo e($value);
+}
+
 function dd(mixed ...$value): void
 {
     var_dump(...$value);
 
     exit();
-}
-
-function _r(mixed $value): void
-{
-    echo htmlspecialchars($value);
 }

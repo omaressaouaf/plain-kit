@@ -1,5 +1,8 @@
 <?php
 
+
+declare(strict_types=1);
+
 use Omaressaouaf\PlainKit\App;
 use Omaressaouaf\PlainKit\Csrf;
 use Omaressaouaf\PlainKit\Response;
@@ -39,8 +42,8 @@ $old = $session->get('old');
         <?php if (count($clients) > 0): ?>
             <?php foreach ($clients as $client): ?>
                 <tr>
-                    <td><?= _r($client['id']) ?></td>
-                    <td><?= _r($client['name']) ?></td>
+                    <td><?= e($client['id']) ?></td>
+                    <td><?= e($client['name']) ?></td>
                 </tr>
             <?php endforeach; ?>
         <?php else: ?>

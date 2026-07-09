@@ -1,49 +1,49 @@
 {
-  "name": "omaressaouaf/plain-kit",
-  "description": "A small PHP toolkit for building MVC-style demos and prototypes without a full framework.",
-  "keywords": [
-    "omaressaouaf",
-    "php",
-    "framework",
-    "php-framework",
-    "php-micro-framework"
-  ],
-  "type": "library",
-  "homepage": "https://github.com/omaressaouaf/plain-kit",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Omar Essaouaf",
-      "email": "souafomar@gmail.com"
-    }
-  ],
-  "autoload": {
-    "psr-4": {
-      "Omaressaouaf\\PlainKit\\": "src/",
-      "Http\\": "examples/ledger/app/Http/",
-      "Repositories\\": "examples/ledger/app/Repositories/",
-      "Services\\": "examples/ledger/app/Services/"
+    "name": "omaressaouaf/plain-kit",
+    "description": "A small PHP toolkit for building MVC-style demos and prototypes without a full framework.",
+    "keywords": [
+        "omaressaouaf",
+        "php",
+        "framework",
+        "php-framework",
+        "php-micro-framework"
+    ],
+    "type": "library",
+    "homepage": "https://github.com/omaressaouaf/plain-kit",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Omar Essaouaf",
+            "email": "souafomar@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Omaressaouaf\\PlainKit\\": "src/"
+        },
+        "files": [
+            "src/helpers.php"
+        ]
     },
-    "files": [
-      "src/helpers.php"
-    ]
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "Omaressaouaf\\PlainKit\\Tests\\": "tests/"
-    }
-  },
-  "scripts": {
-    "test": "vendor/bin/phpunit",
-    "test-f": "vendor/bin/phpunit --filter"
-  },
-  "require": {
-    "php": "^8.2"
-  },
-  "require-dev": {
-    "laravel/pint": "^1.0",
-    "phpunit/phpunit": "^11.0"
-  },
-  "minimum-stability": "stable",
-  "prefer-stable": true
+    "autoload-dev": {
+        "psr-4": {
+            "Omaressaouaf\\PlainKit\\Tests\\": "tests/",
+            "Http\\": "examples/ledger/app/Http/",
+            "Repositories\\": "examples/ledger/app/Repositories/",
+            "Services\\": "examples/ledger/app/Services/"
+        }
+    },
+    "scripts": {
+        "test": "phpunit",
+        "test-f": "phpunit --filter"
+    },
+    "require": {
+        "php": "^8.2"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "phpunit/phpunit": "^11.0"
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }

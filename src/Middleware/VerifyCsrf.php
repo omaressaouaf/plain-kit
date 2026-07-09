@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Omaressaouaf\PlainKit\Middleware;
 
 use Omaressaouaf\PlainKit\App;
@@ -7,7 +9,7 @@ use Omaressaouaf\PlainKit\Csrf;
 use Omaressaouaf\PlainKit\Request;
 use Omaressaouaf\PlainKit\Response;
 
-class VerifyCsrf
+class VerifyCsrf implements MiddlewareInterface
 {
     private Request $request;
 
@@ -32,7 +34,7 @@ class VerifyCsrf
 
         $token = $this->request->input('_csrf_token');
 
-        if (!$token || !$this->csrf->verify($token)) {
+        if (! $token || ! $this->csrf->verify($token)) {
             $this->response->abort(419);
         }
     }
