@@ -32,8 +32,12 @@ class SessionTest extends TestCase
     public function test_it_checks_if_a_key_exists(): void
     {
         $this->session->put('user', ['id' => 1]);
+        $this->session->put('count', 0);
+        $this->session->put('flag', false);
 
         $this->assertTrue($this->session->has('user'));
+        $this->assertTrue($this->session->has('count'));
+        $this->assertTrue($this->session->has('flag'));
         $this->assertFalse($this->session->has('missing'));
     }
 

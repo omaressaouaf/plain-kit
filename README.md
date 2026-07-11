@@ -474,7 +474,7 @@ $errors = $session->get('errors');
 
 ## Database
 
-PlainKit includes a thin PDO wrapper. Configuration is read from `config/app.php`.
+PlainKit includes a thin PDO wrapper. Configuration is read from `config/app.php`. The connection DSN is currently MySQL-only (`mysql:...`).
 
 ```php
 $database = App::resolve(Database::class);

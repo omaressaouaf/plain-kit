@@ -17,9 +17,9 @@ class Validator
         return in_array($value, $array);
     }
 
-    public static function string(string $value)
+    public static function string(string $value): bool
     {
-        return is_string(trim($value));
+        return trim($value) !== '';
     }
 
     public static function numeric(mixed $value)

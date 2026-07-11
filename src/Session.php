@@ -14,7 +14,8 @@ class Session
 
     public function has(string $key): bool
     {
-        return (bool) $this->get($key);
+        return array_key_exists($key, $_SESSION['_flash'] ?? [])
+            || array_key_exists($key, $_SESSION);
     }
 
     public function put(string $key, mixed $value): void

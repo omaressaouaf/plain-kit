@@ -32,6 +32,8 @@ class ValidatorTest extends TestCase
     {
         $this->assertTrue(Validator::string('hello'));
         $this->assertTrue(Validator::string('  spaced  '));
+        $this->assertFalse(Validator::string(''));
+        $this->assertFalse(Validator::string('   '));
     }
 
     public function test_numeric_checks_numeric_values(): void
